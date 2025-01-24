@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CURRICULUM SNEYDER</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+        body {
+            margin: 20px;
+            padding: 0;
+            background-color: #000000;
+            font-family: Arial, sans-serif;
+            color: #333;
+            overflow: hidden; /* Prevents scrollbars */
+        }
+
+        .stars {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: black;
+        }
+
+        .stars::after {
+            content: '';
+            width: 200%;
+            height: 200%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            animation: moveStars 60s linear infinite;
+        }
+
+        @keyframes moveStars {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50%, 50%); }
+        }
+
+        .container-outer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 50px;
+            border-radius: 10px;
+        }
+
+        .container-inner {
+            padding: 20px;
+            flex: 1;
+            margin: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-in-out;
+            background-color: #ffffff;
+        }
+
+        .container-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .container-left img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            animation: assembleImage 2s ease-in-out;
+        }
+
+        .container-right {
+            overflow: auto;
+            border-radius: 10px;
+            flex: 2;
+        }
+
+        .icons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-top: 10px;
+            gap: 10px;
+        }
+
+        .icons a {
+            color: #0056b3;
+            font-size: 24px;
+            transition: transform 0.2s;
+        }
+
+        .icons a:hover {
+            transform: scale(1.2);
+        }
+
+        .container-third {
+            flex: 0.15;
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+
+        .icon-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        .icon-list div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+            transition: background-color 0.2s;
+            animation: slideIn 1s ease-in-out;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .icon-list div:hover {
+            background-color: #f0f0f0;
+        }
+
+        .icon-list i {
+            margin-bottom: 5px;
+            color: #0056b3;
+            font-size: 24px;
+        }
+
+        .icon-list span {
+            color: #333333;
+            font-weight: bold;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes assembleImage {
+            0% { clip-path: circle(0% at 50% 50%); }
+            100% { clip-path: circle(100% at 50% 50%); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        @media (max-width: 768px) {
+            .container-outer {
+                flex-direction: column;
+            }
+
+            .container-inner {
+                margin: 10px 0;
+            }
+
+            .container-left, .container-third {
+                display: none;
+            }
+
+            .container-right {
+                flex: 1;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body onload="showContent('perfil')">
+    <div class="stars"></div>
+    <div class="container-outer">
+        <div class="container-inner container-third">
+            <div class="icon-list">
+                <div onclick="showContent('perfil')">
+                    <i class="fas fa-user"></i>
+                    <span>Perfil</span>
+                </div>
+                <div onclick="showContent('formacion')">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Formación</span>
+                </div>
+                <div onclick="showContent('cursos')">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Cursos</span>
+                </div>
+                <div onclick="showContent('logros')">
+                    <i class="fas fa-trophy"></i>
+                    <span>Logros</span>
+                </div>
+                <div onclick="showContent('contacto')">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contacto</span>
+                </div>
+                <div onclick="showContent('experiencia')">
+                    <i class="fas fa-book"></i>
+                    <span>Experiencia</span>
+                </div>
+            </div>
+        </div>
+        <div class="container-inner container-left">
+            <img src="image.jpeg" alt="SNEYDER" />
+            <div class="icons"> 
+                <a href="https://gitlab.com/KAMIR696" target="_blank"><i class="fab fa-gitlab"></i></a>
+                <a href="https://github.com/Kamir696" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="container-inner container-right" id="content"></div>
+        </div>
+    </div>
+
+    <script>
+        function showContent(content) {
+            var container = document.getElementById('content');
+            var contentHtml = '';
+
+            switch (content) {
+                case 'perfil':
+                    contentHtml = `
+                    <h1>Acerca de mí</h1>
+                    <h2>Estudiante</h2>
+                    <p>Desarrollador de Software y estudiante de Ciencia de Datos, con pasión por la innovación tecnológica y resolución de problemas. Combino habilidades técnicas con pensamiento estratégico, desarrolladas tanto en proyectos académicos como en experiencias laborales. Mi background en ajedrez ha forjado mi capacidad de análisis y planificación. Busco oportunidades para aplicar mi creatividad y conocimientos en el desarrollo de soluciones tecnológicas impactantes.</p>
+                    `;
+                    break;
+                case 'formacion':
+                    contentHtml = `
+                    <h1>Formación</h1>
+                    <h3>Escuela Particular Sócrates, Quito, Ecuador</h3>
+                    <p>• Educación Básica.</p>
+                    <h3>Unidad Educativa Municipal Del Milenio Bicentenario, Quito, Ecuador</h3>
+                    <p>04/09/2009 – 24/07/2019<br>• Educación Secundaria. (Bachiller en Ciencias)</p>
+                    <h3>Pontificia Universidad Católica del Ecuador, Quito, Ecuador</h3>
+                    <p>14/03/2022 – 24/03/2024<br>• Educación Superior - Tecnólogo Superior En Desarrollo De Software.</p>
+                    <h3>Pontificia Universidad Católica del Ecuador, Quito, Ecuador</h3>
+                    <p>• Educación Superior - Actualmente cursando la carrera de Ingeniería en Ciencia De Datos.</p>
+                    `;
+                    break;
+                case 'cursos':
+                    contentHtml = `
+                    <h1>Cursos</h1>
+                    <h3>Centro Tecnológico de Entrenamiento y Capacitación, Quito, Ecuador</h3>
+                    <p>Curso de Diseño y Gestión Web.</p>
+                    <h1>Idiomas</h1>
+                    <h3>Nativo, Quito, Ecuador</h3>
+                    <p>• (ESPAÑOL), Lengua materna.</p>
+                    <h3>Escuela Politécnica Nacional (CEC-EPN), Quito, Ecuador</h3>
+                    <p>12/01/2021 – 15/03/2023<br>• (INGLÉS) Aprobado hasta Académico 4.</p>
+                    `;
+                    break;
+                case 'logros':
+                    contentHtml = `
+                    <h1>DISTINCIONES O MENCIONES HONÓRIFICAS OBTENIDAS</h1>
+                    <h3>Deportista, Quito (U.E.M. Milenio Bicentenario)</h3>
+                    <p>• Destacada Participación En El Intercolegial E Inter Escolar de Ajedrez por equipos 2018.</p>
+                    <p>• Participación Y Compromiso En La Disciplina De Ajedrez Institucional.</p>
+                    <h3>Deportista, Quito (U.E.M. Milenio Bicentenario)</h3>
+                    <p>• Por Haber Organizado El Intercolegial E Inter Escolar Más Grande Del País De Ajedrez Hasta La Actualidad.</p>
+                    <h3>Otros, Quito (U.E.M. Milenio Bicentenario)</h3>
+                    <p>• Por haber sido el Líder de la Disciplina de Ajedrez Institucional Durante Los Años Lectivos 2017-2018; 2018-2019.</p>
+                    `;
+                    break;
+                case 'contacto':
+                    contentHtml = `
+                    <h1>Contacto</h1>
+                        <li>Administración de inventarios de hardware y software.</li>
+                        <li>Implementación de nuevas herramientas y aplicaciones informáticas.</li>
+                        <li>Asistencia técnica y capacitación.</li>
+                    </ul>
+                    `;
+                    break;
+                    case 'experiencia':
+                    contentHtml = `
+                    <h1>Experiencia</h1>
+                    <h3>Pontificia Universidad Católica del Ecuador, Quito, Ecuador</h3>
+                    <p>15/12/2022 – 18/02/2023<br>• Colaborador de la aplicación SNYPAL que se llevó a cabo
+                    para la entrega de la Escuela de emprendimiento de la
+                    Pontificia Universidad Católica del Ecuador.</p>
+                    <h3>Pontificia Universidad Católica del Ecuador, Quito, Ecuador</h3>
+                    <p>28/11/2023 – 18/02/2024<br>• Como trabajo de tesis, desarrollé una aplicación web
+                    enfocada en la gestión de transacciones personales por
+                    categorización, utilizando Ruby on Rails. Aplicando buenas
+                    prácticas de desarrollo web, metodologías ágiles y trabajando
+                    en un entorno de desarrollo colaborativo utilizando control de
+                    versiones.</p>
+                    <h3>SERVICIO INTEGRADO DE SEGURIDAD ECU 911</h3>
+                    <p>03/03/2023 – 18/04/2024<br>• Durante este periodo, colaboré y desarrollé diversas
+                    actividades tanto para la Dirección Nacional de
+                    Infraestructura como para la Dirección Nacional de Proyectos
+                    e Innovación Tecnológica:</p>
+                    <ul>
+                        <li>Mantenimiento y actualización de infraestructura de
+                        servidores.</li>
+                        <li>Gestión y documentación de proyectos tecnológicos.</li>
+                        <li>Estudio de mercado para adquisiciones tecnológicas.</li>
+                        <li>Administración de inventarios de hardware y software.</li>
+                        <li>Implementación de nuevas herramientas y
+                        aplicaciones informáticas.</li>
+                        <li>Asistencia técnica y capacitación.</li>
+                    </ul>
+                    `;
+                    break;
+            }
+
+            container.innerHTML = contentHtml;
+            container.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
